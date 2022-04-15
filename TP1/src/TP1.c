@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : TrabajoPractico_1.c
- Author      : Trabajo practico
+ Author      : Emanuel vidal - Divicion D.
  Version     :
  Copyright   : 
  Description : Hello World in C, Ansi-style
