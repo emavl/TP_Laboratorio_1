@@ -5,6 +5,22 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+//_____________________________Ejecuta menu______________________________
+int ejecutaMenu(int numero)
+{
+
+	printf("\n1-Ingrese los Kilometros:\n"
+		   "2-Ingrese precio de vuelos:\n"
+		   "3-Calcular todos los costos:\n"
+		   "4-Informar Resultados\n"
+		   "5-Carga forzada de Datos\n"
+		   "6-Salir\n"
+		   "\nIngrese la opcion deseada: ");
+	scanf("%d",&numero);
+
+	return numero;
+
+}
 //________________________Pide un numero entero__________________________
 int numeroEntero(int numero)
 {
@@ -22,7 +38,7 @@ float numeroFlotante(float numero)
 	return numero;
 }
 
-//____________________________DEBITO____________________________
+//_______________________________DEBITO____________________________
 float debito(float tarjeta) // parametros formales
 {
 	float precioFinal;
@@ -31,7 +47,7 @@ float debito(float tarjeta) // parametros formales
 
 	return precioFinal;
 }
-//____________________________CREDITO_____________________________
+//_______________________________CREDITO_____________________________
 float credito(float tarjeta)
 {
 	float precioFinal;

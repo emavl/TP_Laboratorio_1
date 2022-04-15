@@ -10,6 +10,7 @@
 
 
 //		___________________ Protipos__________________________.
+  int ejecutaMenu(int numero);
   int numeroEntero(int numero);     // pide un numero
 float numeroFlotante(float numero); // pide un numero flotante.
 float debito(float tarjeta);        // cobro con debito.

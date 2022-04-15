@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Calcular_Costos.h"
-#include <string.h>
+
 
 int main(void) {
 	setbuf(stdout,NULL);
@@ -19,7 +19,7 @@ int main(void) {
 	int opcion;
   float kilometros;
   float precioAerolineas;
-  float precioLatam;   // km - 7090
+  float precioLatam;
   float debitoA;
   float debitoL;
   float creditoA;
@@ -32,14 +32,7 @@ int main(void) {
 
   do
   {
-	printf("\n1-Ingrese los Kilometros:\n"
-		   "2-Ingrese precio de vuelos:\n"
-		   "3-Calcular todos los costos:\n"
-		   "4-Informar Resultados\n"
-		   "5-Carga forzada de Datos\n"
-		   "6-Salir\n"
-		   "\nIngrese la opcion deseada: ");
-	opcion = numeroEntero(opcion);
+	opcion = ejecutaMenu(opcion);
 
 	switch(opcion)
 	{
@@ -67,10 +60,10 @@ int main(void) {
 			precioLatam = numeroFlotante(precioLatam);
 
 			while(precioLatam <= 0)
-						{
-							printf("\nError !!!\nIngrese el valor correcto");
-							precioLatam = numeroFlotante(precioLatam);
-						}
+				{
+					printf("\nError !!!\nIngrese el valor correcto");
+					precioLatam = numeroFlotante(precioLatam);
+				}
 			break;
 	    case 3: // funciona
 	    	if(kilometros != 0 && precioAerolineas !=0 && precioLatam !=0)
@@ -89,7 +82,6 @@ int main(void) {
 
 				diferenciaPrecio = diferencia(precioLatam,precioAerolineas);
 
-				printf("\nIngrese la opcion 4 para el informe de resultados \n");
 	    	}
 	    	else
 	    	{
@@ -118,8 +110,32 @@ int main(void) {
 	    	precioAerolineas = 1335000.66;
 	    	precioLatam = 1350000.76;
 
-	    	printf("\nIngrese la opcion 3 para calcular costos\n");
+	    	debitoA = debito(precioAerolineas);
+			debitoL = debito(precioLatam);
 
+			creditoA = credito(precioAerolineas);
+			creditoL = credito(precioLatam);
+
+			bitcoinA = bitcoin(precioAerolineas);
+			bitcoinL = bitcoin(precioLatam);
+
+			precioUnitarioA = PrecioKm(kilometros,precioAerolineas);
+			precioUnitarioL = PrecioKm(kilometros,precioLatam);
+
+			diferenciaPrecio = diferencia(precioLatam,precioAerolineas);
+
+	    	printf("\nLatam:\n"
+					"\na) Precio con tarjeta de Debito es:$ %.2f"
+					"\nb) Precio con tarjeta de Credito es:$ %.2f"
+					"\nc) Precio pagando con Bitcoin es:$ %.4f"
+					"\nd) Precio unitario es:$ %.2f\n"
+					"\nAerolineas Argentinas:\n"
+					"\na) Precio con tarjeta de Debito es:$ %.2f"
+					"\nb) Precio con tarjeta de Credito es:$ %.2f"
+					"\nc) Precio pagando con Bitcoin es:$ %.4f"
+					"\nd) Precio unitario es:$ %.2f"
+					"\nLa diferencia de precio es:$ %2.f\n"
+					,debitoL,creditoL,bitcoinL,precioUnitarioL,debitoA,creditoA,bitcoinA,precioUnitarioA,diferenciaPrecio);
            break;
 	    case 6:
 	    	printf("\nGracias por utilizar nuestros servicios !!!");
